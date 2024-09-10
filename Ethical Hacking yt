@@ -1,0 +1,22 @@
+ip adresses ---> 32 bit 
+ipv4 
+     >  --------> layer 3 protocols
+ipv6 
+
+  format   11111111.10110110. etc 
+starting with 192.168 ----> private ip address, does not go out to public 
+   Class A    10.0.0 
+   Class B    172.16
+              172.31 
+  Class C     127.0 
+ LOOPBACK     127.0  
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+MAC address = physical address = layer 2
+L-----> Media Access Control  
+format 20:00:0c:8a:42:86
+       L ------> first 3 pairs = identifiers 
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+
+TCP vs UDP 
+Transmission Control Protocol             vs         User Datagram Protocol 
+L -----> connection oriented protocol                L --------> connection less protocol
