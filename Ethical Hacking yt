@@ -20,3 +20,84 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 TCP vs UDP 
 Transmission Control Protocol             vs         User Datagram Protocol 
 L -----> connection oriented protocol                L --------> connection less protocol
+SYN > SYN ACK > ACK
+                 L acknowledgement package back to actually connect 
+        L port 433 open go ahead
+L hey I want to connect on port 433..... 
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+TCP: 
+-File-Transfer Protocol- FTP: (21)    //log to server, get a file, put a file. 
+
+-Telnet:(23)      // ability to log into a machine remotely * in clear text 
+        >
+-SSH:(22)       //  same as Telnet but encrypted 
+
+-SMTP:(25)       ]
+-POP3:(110)      ] --------- all relate to mail
+-IMAP:(143)      ] 
+
+- Domain Name System-DNS:(53) // a way to resolve ip addresses to names 
+- HYypertext Transfer Protocol-HTTP:(80)       // non secure version , not encrypted 
+- HTTPS:(443)     // encrypted, secure version  
+
+- SMB: (139 + 445)   // called Samba, used in file shares
+                     // open freely on networks, used in many viruses (wannacry-eternal blue-ms17010)
+               L ---- on later versions of windows 
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+UDP: 
+-DNS:(53) 
+-DHCP: (67,68) // associates you with a random ip address x staticc ip address: gives a specific ip address to a specific device when using on the internet 
+                                      L ----- through the MAC address layer 2 ---> layer 3 
+
+- TFTP:(69)  //  trivial FTP, utilizes UDP instead of TCP
+- SNMP: simple network management protocol 
+           L----- encountered on networks
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+OSI Model: (Open System Interconnection)
+   
+*please do not throw sausage pizza away.
+
+1  Physical                       
+                //deals with physical connection between devices 
+            L-- includes hardware or transmission medium ex. cables
+2  Data link 
+               // data transfer and error detection, ensures data transfered over physical layer is error free
+            L-- switching, MAC addresses and LLC (logical link control), ethernet.  
+3  Network
+               //handles routing of data accross devices/ diff networks 
+            L--IP addresses, routing 
+
+4  Transport
+               // ensures reliable data transfer, provides error correction, data flow control, retransmission of lost data 
+            L-- TCP/UDP
+5  Session 
+               //manages communication sessions 
+            L-- RPC (Remote Procedure Call), PPTP (point to point Tunneling Protocol) 
+6  Presentation
+               //ensures data is usable format and manages encryption 
+            L-- SSL/TLS, JPEG, MPEG. 
+7  Application 
+               //closest to end user, reaction between user and software occurs
+            L-- HTTP, FTP,SMTP
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+subnetting
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
