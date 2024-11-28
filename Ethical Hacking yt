@@ -85,7 +85,115 @@ OSI Model: (Open System Interconnection)
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-subnetting
+Kali Linux commands 
+ls: List files in the directory.
+ls -a (list all, including hidden files)
+ls -l (long listing format)
+cd [directory]: Change directory.
+cd .. (go back one directory)
+pwd: Print the current directory path.
+mkdir [directory_name]: Create a new directory.
+rm [file]: Remove a file.
+rm -r [directory] (remove directory recursively)
+cp [source] [destination]: Copy files or directories.
+mv [source] [destination]: Move/rename files or directories. 
+cat [file]: View the contents of a file.
+nano [file]: Edit files in the terminal.
+touch [file_name]: Create an empty file.
+less [file]: View file content one screen at a time.
+head [file]: View the first 10 lines of a file.
+head -n 5 [file] (view first 5 lines)
+tail [file]: View the last 10 lines of a file.
+tail -f [file] (follow file changes live)
+whoami: Show the current user.
+who: List users logged into the system.
+id: Display user ID and group info.
+uname -a: Display system info.
+hostname: Display the hostname.
+uptime: Show how long the system has been running.
+chmod [permissions] [file]: Change file permissions.
+Example: chmod 755 [file]
+chown [user:group] [file]: Change file owner and group.
+Example: chown root:root [file]
+ps: Display active processes.
+top: Show real-time process monitoring.
+kill [PID]: Terminate a process by PID.
+kill -9 [PID] (force kill a process)
+htop: Interactive process manager (if installed).
+fconfig: Display network interfaces (deprecated; use ip addr).
+ip addr: Show IP address and network info.
+ping [hostname/IP]: Test network connectivity.
+netstat: Display network connections.
+netstat -tuln (show listening ports and services)
+nmap [target]: Network scanning (requires nmap installed).
+wget [URL]: Download files from the web.
+curl [URL]: Transfer data from or to a server.
+apt update: Update package lists.
+apt upgrade: Upgrade all installed packages.
+apt install [package_name]: Install a package.
+apt remove [package_name]: Remove a package.
+apt search [package_name]: Search for a package.
+tar -cvf [file.tar] [directory]: Create a tar archive.
+tar -xvf [file.tar]: Extract a tar archive.
+gzip [file]: Compress a file using gzip.
+gunzip [file.gz]: Decompress a gzip file.
+df -h: Display disk usage in human-readable format.
+du -h [file/dir]: Display size of a file or directory.
+mount [device] [mount_point]: Mount a device.
+umount [mount_point]: Unmount a device.
+history: View command history.
+clear: Clear terminal screen.
+man [command]: Display the manual for a command.
+echo [text]: Print text to the terminal
+
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+port scanner 
+
+#!/bin/python3 
+
+# python3 scanner.py <ip>   
+
+import sys 
+import socket 
+from datetime import datetime 
+
+#define target 
+if len(sys.argv) == 2: 
+	target = socket.gethostbyname(sys.argv[1]) # translates host name to ipv4 
+else: 
+	 print(" Invalid amount of arguments") 
+	 print(" Syntax: python3 scanner.py <ip>") 
+	 
+#Add a pretty banner 
+
+print("-" * 50) 
+print(" Scanning target " + target) 
+print("Time Started: " + str(datetime.now())) 
+print("-" * 50) 
+
+try: 
+	for port in range (50,85) : 
+		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+	socket.setdefaulttimeout(1) 
+	result = s.connect_ex((target,port)) #I want to connect on target and port, port supplied by us, port is range of 50,80 mentioned in range 
+	#s,connect_ex --> error indicator , port open --> 0 , port closed --> 1 
+	if result == 0: 
+		print(" Port () is open")
+		s.close() 
+		
+		
+except KeyboardInterrupt: 
+	print("\n Exiting Program.") 
+	sys.exit() 
+	
+except socket.gaierror: 
+	print(" Hostname could not be resolved.")  
+	sys.exit() 
+except socket.error:
+	print("Could not connect to server.") 
+	sys.exit() 
 
 
 
