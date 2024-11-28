@@ -1,0 +1,85 @@
+ CREATE TABLE user(
+User_ID INT PRIMARY KEY, 
+username VARCHAR(50) NOT NULL, 
+password VARCHAR(50) NOT NULL, 
+first_name VARCHAR(50) NOT NULL, 
+last_name VARCHAR(50) NOT NULL,   
+role VARCHAR(50) NOT NULL,   
+); 
+
+ Create TABLE admin(
+User_ID INT PRIMARY KEY, 
+email VARCHAR(100) UNIQUE NOT NULL, 
+assigned_tasks TEXT, 
+); 
+
+ CREATE TABLE visitor(
+User_ID INT PRIMARY KEY, 
+email VARCHAR(50) NOT NULL,   
+);  
+CREATE TABLE room(
+Room_ID INT PRIMARY KEY,  
+name VARCHAR(50) NOT NULL,  
+capacity INT, 
+features TEXT, 
+status VARCHAR(20), 
+rental-rate_per_day DECIMEL(10,2), 
+);  
+ CREATE TABLE rental(
+Rental_ID INT PRIMARY KEY, 
+Visitor_ID INT NOT NULL, 
+Room_ID INT NOT NULL, 
+start_datetime DateTime NOT NULL, 
+end_datetime DateTime NOT NULL, 
+total_price DECIMAL(10,2) NOT NULL, 
+approval_status VARCHAR(20), 
+  
+FOREIGN KEY (Visitor_ID) REFERENCES visitor(User_ID), 
+FOREIGN KEY (Room_ID) REFERENCES room(Room_ID),   
+);
+
+ CREATE TABLE staff_service_request(
+SSR_ID INT PRIMARY KEY, 
+Staff_ID INT NOT NULL, 
+Room_ID INT NOT NULL, 
+Feature_ID INT NOT NULL, 
+item_name VARCHAR(50) NOT NULL, 
+quantity INT, 
+request_date Date, 
+status  VARCHAR(20) NOT NULL,  
+  FOREIGN KEY (Staff_ID) REFERNCES staff member(User_ID), 
+  FOREIGN KEY (Room_ID) REFERNCES room(Room_ID), 
+  FOREIGN KEY (Feature_ID) REFERNCES staff Feature(feature_ID),  
+);  
+
+ CREATE TABLE feedback( 
+Feedback_code INT PRIMARY KEY, 
+Visitor_ID  INT, 
+Room_ID INT  
+rating INT, 
+comment TEXT, 
+feedback_date DATE, 
+ 
+  FOREIGN KEY (Visitor_ID) REFERNCES visitor(visitor_ID), 
+  FOREIGN KEY (Room_ID) REFERNCES room(Room_ID), 
+); 
+
+ CREATE TABLE maintenance_report(
+Report_ID INT PRIMARY KEY, 
+Room_ID INT, 
+Feature_ID INT, 
+issue_description TEXT, 
+report_date DATE, 
+resolved_status VARCHAR(100),   
+); 
+ 
+ CREATE TABLE supply_request(
+Request_ID INT PRIMARY KEY, 
+admin_ID INT, 
+item_name VARCHAR(50), 
+quantity INT, 
+status VARCHAR(50),
+date Date,  
+ );
+
+
